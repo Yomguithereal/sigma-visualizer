@@ -13,4 +13,13 @@ fetch(GEXF_FILE)
     const graph = gexf.parse(Graph, body);
 
     const renderer = new WebGLRenderer(graph, container);
+
+    const loop = () => {
+      if (!renderer.renderFrame)
+        renderer.render();
+
+      requestAnimationFrame(loop);
+    };
+
+    requestAnimationFrame(loop);
   });
