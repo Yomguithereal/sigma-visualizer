@@ -12,7 +12,9 @@ fetch(GEXF_FILE)
 
     const graph = gexf.parse(Graph, body);
 
-    const renderer = new WebGLRenderer(graph, container);
+    const renderer = new WebGLRenderer(graph, container, {
+      renderLabels: false
+    });
 
     const loop = () => {
       if (!renderer.renderFrame)

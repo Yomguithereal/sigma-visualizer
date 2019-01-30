@@ -110,7 +110,9 @@ fetch(GEXF_FILE).then(function (response) {
   return response.text();
 }).then(function (body) {
   var graph = graphology_gexf_browser__WEBPACK_IMPORTED_MODULE_1___default.a.parse(graphology__WEBPACK_IMPORTED_MODULE_0___default.a, body);
-  var renderer = new sigma_renderers_webgl__WEBPACK_IMPORTED_MODULE_2___default.a(graph, container);
+  var renderer = new sigma_renderers_webgl__WEBPACK_IMPORTED_MODULE_2___default.a(graph, container, {
+    renderLabels: false
+  });
 
   var loop = function loop() {
     if (!renderer.renderFrame) renderer.render();
